@@ -19,8 +19,6 @@ fsspec==2025.9.0
 graphviz==0.21
 grpcio==1.76.0
 hf-xet==1.1.10
-# Editable install with no version control (hiddenlayer==0.2)
--e /Users/dania/Downloads/hiddenlayer-master
 huggingface-hub==0.35.3
 idna==3.11
 imageio==2.37.0
