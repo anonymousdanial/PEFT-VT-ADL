@@ -25,5 +25,6 @@
 
 progress updates for emerging technology 
 
-1. replaced the transformer encoder with beit encoder from microsoft(/Users/dania/code/EmergingTechnologies/VT-ADL/datasets/mvtec)
-2. that is it for now
+1. replaced the transformer encoder with pretrained encoder from microsoft(/Users/dania/code/EmergingTechnologies/VT-ADL/datasets/mvtec)
+2. trained the model for 60 epochs(2 hours)
+3. the loss has not changed, need to update backwards()
