@@ -64,7 +64,7 @@ class VT_AE(nn.Module):
         self.decoder = M.decoder2(8)
         # self.G_estimate= mdn1.MDN() # Trained in modular fashion
         self.Digcap = S.DigitCaps(in_num_caps=((image_size//patch_size)**2)*8*8, in_dim_caps=8)
-        self.mask = torch.ones(1, image_size//patch_size, image_size//patch_size).bool()#.cuda()
+        self.mask = torch.ones(1, image_size//patch_size, image_size//patch_size).bool().cuda()
         self.Train = train
         
         if self.Train:
@@ -203,19 +203,19 @@ def add_noise(latent, noise_type="gaussian", sd=0.2):
         mean = 0.
 
         n = torch.distributions.Normal(torch.tensor([mean]), torch.tensor([sd]))
-        noise = n.sample(latent.size()).squeeze(-1)#.cuda()
+        noise = n.sample(latent.size()).squeeze(-1).cuda()
         latent = latent + noise
         return latent
 
     if noise_type == "speckle":
-        noise = torch.randn(latent.size())#.cuda()
+        noise = torch.randn(latent.size()).cuda()
         latent = latent + latent * noise
         return latent
 
 if __name__ == "__main__":
     from torchsummary import summary
 
-    mod = VT_AE()#.cuda()
+    mod = VT_AE().cuda()
     print(mod)
     # summary(mod, (3,512,512))
 
